@@ -1,0 +1,31 @@
+module load stacks/1.45
+
+### one command line per library:
+process_radtags -f /scratch/knowlesl_flux/jdalapic/Proechimys_Lib2_R1.fastq.gz -i gzfastq -b ./barcode_lib2.txt -o /scratch/knowlesl_flux/jdalapic/radtags_2 -e ecoRI -q -r -E phred33 -D --inline_null --adapter_1 AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG --adapter_mm 1 --barcode_dist_1 2 --filter_illumina
+
+## one command line per sample:
+ustacks -t gzfastq -f /scratch/knowlesl_flux/jdalapic/cuvieri/radtags/AMNH269122.fq.gz -o /scratch/knowlesl_flux/jdalapic/cuvieri/stacks -i 1 -m 6 -p 8 -M 3 -d -r --bound_high 0.1 --model_type bounded 2>&1
+ustacks -t gzfastq -f /scratch/knowlesl_flux/jdalapic/cuvieri/radtags/JAP107.fq.gz -o /scratch/knowlesl_flux/jdalapic/cuvieri/stacks -i 2 -m 6 -p 8 -M 3 -d -r --bound_high 0.1 --model_type bounded 2>&1
+ustacks -t gzfastq -f /scratch/knowlesl_flux/jdalapic/cuvieri/radtags/MVZ194491.fq.gz -o /scratch/knowlesl_flux/jdalapic/cuvieri/stacks -i 3 -m 6 -p 8 -M 3 -d -r --bound_high 0.1 --model_type bounded 2>&1
+
+## one command line per catalog/species:
+cstacks -b 1 -o /scratch/knowlesl_flux/jdalapic/cuvieri/stacks -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/AMNH269122 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/JAP107 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/MVZ194491 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/ROM119901 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/AMNH269123 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/MCNM2258 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/MVZ194493 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/TK73888_TTU101173 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/JAP094 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/MVZ160093 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/NMNH549559 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/X1M15 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/JAP095 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/MVZ190699 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/NMNH549567 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/X1M24 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/JAP098 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/MVZ194474 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/NMNH568055 -p 8 -n 3 2>&1
+
+## one command line per sample:
+sstacks -b 1 -c /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/batch_1 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/AMNH269122 -o /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/ -p 8 2>&1
+sstacks -b 1 -c /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/batch_1 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/JAP107 -o /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/ -p 8 2>&1
+sstacks -b 1 -c /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/batch_1 -s /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/MVZ194491 -o /scratch/knowlesl_flux/jdalapic/cuvieri/stacks/ -p 8 2>&1
+
+## one command line per catalog/species:
+populations -b 1 -P /scratch/knowlesl_flux/jdalapic/cuvieri/stacks -M /scratch/knowlesl_flux/jdalapic/cuvieri/pop1/cuv_popmap1.txt -O /scratch/knowlesl_flux/jdalapic/cuvieri/pop1 -p 2 -m 6 -r 0 -a 0 -t 8 2>&1 --vcf
+
+##CREATE A WHITELIST
+
+#RE-RUN POPULATIONS
+populations -b 1 -P /scratch/knowlesl_flux/jdalapic/cuvieri/stacks -M /scratch/knowlesl_flux/jdalapic/cuvieri/pop1/cuv_popmap1.txt -O /scratch/knowlesl_flux/jdalapic/cuvieri/pop2 -W /scratch/knowlesl_flux/jdalapic/cuvieri/pop2/whitelist_cuv.txt -p 2 -m 6 -r 0 -a 0 -t 2 2>&1 --vcf --plink
+
+#REMOVE MISSING DATA IN PLINK
+
+#RE-RUN POPULATIONS
+populations -b 1 -P /scratch/knowlesl_flux/jdalapic/cuvieri/stacks -M /scratch/knowlesl_flux/jdalapic/cuvieri/pop3/cuv_popmap3.txt -O /scratch/knowlesl_flux/jdalapic/cuvieri/pop3 -W /scratch/knowlesl_flux/jdalapic/cuvieri/pop3/whitelist_cuv3.txt -p 2 -m 6 -r 0 -a 0 -t 2 2>&1 --vcf --plink --write_random_snp --fstats --fst_correction=p_value --genepop --structure --phylip
+

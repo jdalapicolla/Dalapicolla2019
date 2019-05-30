@@ -1,0 +1,8 @@
+##Add after .nexus alignment
+
+begin paup;
+	svdq speciestree=n evalQuartets=all nthreads=20 bootstrap=y nreps=100 treemodel=mscoal mrpFile=proechimys_222_88l_sptree treeFile=proechimys_222_88l_spboot;
+	savetrees;
+	
+
+end;

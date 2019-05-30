@@ -1,0 +1,27 @@
+./plink --file batch_1.plink --missing --out miss_100 --allow-extra-chr 0
+
+-50% loci
+./plink --file batch_1.plink  --exclude remove_50l.txt --out proe_plink2 --make-bed --allow-extra-chr 0
+./plink --bfile proe_plink2 --missing -out miss_50l
+
+-80% individuals
+./plink --bfile proe_plink2 --remove remove_80i.txt --out proe_plink3 --make-bed --allow-extra-chr 0
+./plink --bfile proe_plink3 --missing -out miss_80i
+
+-25% loci
+./plink --bfile proe_plink3 --exclude remove_25l.txt --out proe_plink4 --make-bed --allow-extra-chr 0
+./plink --bfile proe_plink4 --missing -out miss_25l
+
+test in R for 20%, 15%, 10%, 5% of missing around 7-10,000 loci
+
+-15% loci
+./plink --bfile proe_plink4 --exclude remove_15l.txt --out proe_plink5 --make-bed --allow-extra-chr 0
+./plink --bfile proe_plink5 --missing -out miss_15l
+
+-20% individuals if necessary
+./plink --bfile proe_plink5 --remove remove_20i.txt --out proe_plink6 --make-bed --allow-extra-chr 0
+./plink --bfile proe_plink6 --missing -out miss_20i
+
+-12% loci
+./plink --bfile proe_plink6 --exclude remove_12l.txt --out proe_plink7 --make-bed --allow-extra-chr 0
+./plink --bfile proe_plink7 --missing -out miss_12l

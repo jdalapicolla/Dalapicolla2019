@@ -1,0 +1,1 @@
+raxmlHPC-PTHREADS -s /scratch/lsa_flux/jdalapic/Proechimys/Proe_222.phy -n Proe_ALLloci_GTR100 -f a -m GTRGAMMA -x 12345 -N 100 -p 12345 -T 16

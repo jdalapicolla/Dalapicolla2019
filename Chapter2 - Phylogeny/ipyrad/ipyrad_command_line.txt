@@ -1,0 +1,1 @@
+ipyrad -p /scratch/knowlesl_flux/jdalapic/IPYRAD/ALL/ipyrad_parameters_example.txt -s 1234567
