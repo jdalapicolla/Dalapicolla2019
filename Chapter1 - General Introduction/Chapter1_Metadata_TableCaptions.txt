@@ -1,0 +1,13 @@
+Table 1: List of 65 nominal taxa for the species group of the genus Proechimys, organized in alphabetical order with information about the author, year and museum where the types are housed, and its original name used in the description. There is no information on where holotype for longicaudatus is housed. AMNH: American Museum of Natural History, New York, New York, USA; FMNH: Field Museum of Natural History, Chicago, Illinois, USA; INPA: Instituto Nacional de Pesquisas da Amazônia, Manaus, Brazil; MCZ: Museum of Comparative Zoology, Harvard University, Cambridge, Massachusetts, USA; MHN: Musee National d’Histoire Naturalle, Paris, France; MN: Coleção de Mamíferos do Museu Nacional da Universidade Federal do Rio de Janeiro, Rio de Janeiro, Rio de Janeiro, Brazil;  NHM: Natural History Museum, London, UK; UMMZ: University of Michigan, Museum of Zoology, Ann Arbor, Michigan, USA; USNM: National Museum of Natural History, Smithsonian Institution, Washington, District of Columbia, USA; ZINRAS: Zoological Institute, Russian Academy of Sciences, Saint Petersburg, Russia. UK: United Kingdom; USA: United States of America.
+
+Table 2: Major taxonomic arrangements suggested by different authors over time for the genus Proechimys. Genera and subgenera names are in bold, species and subspecies names are in italics, underlined taxa do not belong to Proechimys, according to the latest taxonomic classification, and names in parentheses indicates the genus that nominal taxa belong currently. Nominal taxa left-aligned correspond to species (single name) or subspecies (double name) and the center-aligned names are synonyms of the name above.
+Notes:
+¹ Did not mention the nominal taxa guyannensis.
+² Only included the Proechimys forms from Southeastern Brazil, all others forms from South and Central America were included in subgenus Proechimys.
+³ He did not analize 12 nominal taxa. 
+4 He did not mention the nominal taxa hoplomyoides.
+5 He only included the Proechimys forms from Brazil, others taxonomic status from South and Central America were removed in text during his comparisons.
+6 They did not include all nominal taxa.
+7 He did not include the subgenus Trinomys in this study. Also, he did not define the synonyms by species, he only delimited the groups and the nominal taxa in each group. Later, he cited the nominal taxa which could be considered a species. For the others nominal taxa he affirmed it is necessary a taxonomic revision.
+8 They did not mention the nominal taxa cayennensis.
+
